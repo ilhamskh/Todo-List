@@ -23,11 +23,15 @@ function switchMode(){
     const card = document.querySelector(".card")
     card.setAttribute("style", "transition: 0.5s linear")
 
+    const body = document.getElementsByTagName("body")[0];
+
     if(card.className === "card"){
         card.className = "card text-white bg-dark mb-3";
+        body.setAttribute("style", "transition: 0.5s linear; background-color: #161616")
     }
     else{
         card.className = "card";
+        body.setAttribute("style", "background-color: #fff")
     }
 }
 
