@@ -6,6 +6,7 @@ const firstCardBody = document.querySelectorAll(".card-body")[0];
 const secondCardBody = document.querySelectorAll(".card-body")[1];
 const filter = document.querySelector("#filter");
 const clearButton = document.querySelector("#clear-todos");
+const checkbox = document.querySelector("#flexSwitchCheckDefault");
 
 eventListeners();
 
@@ -15,6 +16,20 @@ function eventListeners(){
     secondCardBody.addEventListener("click", deleteTodo);
     filter.addEventListener("keyup", filterTodos);
     clearButton.addEventListener("click", clearAllTodos);
+    checkbox.addEventListener("change", switchMode);
+}
+
+function switchMode(){
+    const card = document.querySelector(".card")
+    card.setAttribute("style", "transition: 0.5s linear")
+
+    if(card.className === "card"){
+        card.className = "card text-white bg-dark mb-3";
+        clearButton.className = "btn btn-danger"
+    }
+    else{
+        card.className = "card";
+    }
 }
 
 function filterTodos(e){
